@@ -1,0 +1,24 @@
+#!/bin/bash
+
+#SBATCH --job-name=cellranger_count_A1
+#SBATCH --time=1-12:00:00
+#SBATCH --cpus-per-task=20
+#SBATCH --mem-per-cpu=32G
+#SBATCH --partition=himem
+#SBATCH --output=cellranger_count_A1_%j.out
+#SBATCH --mail-user=ariunaa.bayanjargal@nationwidechildrens.org
+#SBATCH --mail-type=ALL
+
+## set path info
+export PATH=/gpfs0/home/gdlessnicklab/rsaxb003/Downloads/cellranger-3.0.2:$PATH
+
+ 
+## perform alignment and count genes
+ cellranger count \
+  --id cellranger_count_A1_output \
+  --fastqs /gpfs0/home/gdlessnicklab/rsaxb003/scRNAseq/05222019_A673_Parental/FASTQ_files/ \
+  --sample Ariunaa-1 \
+  --transcriptome /gpfs0/home/gdlessnicklab/rsaxb003/A673_genome/Allele1/A673genome_A1_10x/ \
+  --expect-cells 8000 \
+  --r1-length 27 \
+  --r2-length 98 \

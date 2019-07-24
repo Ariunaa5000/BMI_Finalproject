@@ -1,0 +1,39 @@
+#!/bin/bash
+
+#SBATCH --job-name=10x-cellranger-Dec18
+#SBATCH --time=1-12:00:00
+#SBATCH --cpus-per-task=20
+#SBATCH --mem-per-cpu=32G
+#SBATCH --partition=himem
+#SBATCH --output=2019-04-10x-cellranger-%j.out
+#SBATCH --mail-user=ariunaa.bayanjargal@nationwidechildrens.org
+#SBATCH --mail-type=ALL
+
+## set path info
+export PATH=/gpfs0/home/gdlessnicklab/rsaxb003/scRNAseq/cellranger-3.0.2:$PATH
+export PATH=/opt/bcl2fastq/bin/:$PATH
+
+## extract bcl from .tar
+## cd /gpfs0/home/gdrobertslab/lab/2018-09-scRNA/
+## tar -xvf 180828_K00194_0164_AHVK2TBBXX_Roberts.tar
+
+## demultiplex bcl and create fasta files
+ cellranger mkfastq \
+  --samplesheet=/gpfs0/home/gdlessnicklab/rsaxb003/scRNAseq/190415_K00194_0199_AH3W53BBXY_Roberts/SampleSheet.csv \
+  --run=/gpfs0/home/gdlessnicklab/rsaxb003/scRNAseq/190415_K00194_0199_AH3W53BBXY_Roberts \
+  --ignore-dual-index \
+  --qc \
+  --output-dir /gpfs0/home/gdlessnicklab/rsaxb003/scRNAseq/FASTQs/ \
+  --use-bases-mask Y150n*,I8N9,N8,Y140n*
+ 
+
+## perform alignment and count genes
+## cellranger count \
+##  --id MarenFirst \
+##  --fastqs /gpfs0/home/gdrobertslab/lab/FASTQs/2019-03-MarenFirst/190301_10XscRNAseq_Roberts/OS17-K7M2/ \
+##  --sample OS17-K7M2 \
+##  --transcriptome /gpfs0/home/gdrobertslab/rxr014/GenRef/10x-mix \
+##  --expect-cells 5000 \
+##  --chemistry SC3Pv2 \
+##  --r1-length 27 \
+##  --r2-length 98
