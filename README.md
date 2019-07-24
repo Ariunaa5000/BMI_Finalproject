@@ -161,6 +161,10 @@ Input:  filtered_feature_bc_matrix_A1.csv
 
 Output:A673_ASE_burst.csv
 
+### Figure of biallelic expression of specific genes 
+
+See file Figure1a.ipynb.
+
 ## Gene-set enrichment analysis
 
 ### A list of genes - biallelic differential bursting 
