@@ -2,7 +2,7 @@
 
 Identification and characterization of biallelic burst kinetics of Ewing sarcoma from single cell RNA-Seq.
 
-BMI5750 Final project by Ariunaa Bayanjargal and Rachel Brown. 
+By Ariunaa Bayanjargal and Rachel Brown. 
 
 ## 10X Genomic single cell RNA-seq of A673 parental cells
 
