@@ -173,7 +173,6 @@ A list was created containing the genes that have significantly different expres
 
 See file Dif_exp_genelist.csv 
 
-### Characterize the genes with DAVID Bioinformatics Resources
+### Characterize the genes with DAVID Bioinformatics Resources and GeneCards
 
-As per class lecture. 
-
+Added official gene symbol using DAVID and GeneCards. Explored gene functions. 
